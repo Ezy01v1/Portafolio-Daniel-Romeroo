@@ -57,6 +57,7 @@
     text-decoration:none;
   }
   .brand span{ color: var(--accent); }
+  .nav-right{ display:flex; align-items:center; gap: 28px; }
   nav.links{ display:flex; gap: 28px; }
   nav.links a{
     text-decoration:none; font-size: 0.92rem; color: var(--ink-soft);
@@ -64,6 +65,23 @@
     transition: color .15s ease;
   }
   nav.links a:hover{ color: var(--accent); }
+
+  .lang-switch{
+    display:flex; align-items:center; gap: 2px;
+    font-family: var(--mono); font-size: 0.8rem;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .lang-switch button{
+    font-family: var(--mono); font-size: 0.8rem;
+    background: transparent; border: none; cursor: pointer;
+    padding: 6px 10px; color: var(--ink-soft);
+    transition: all .15s ease;
+  }
+  .lang-switch button.active{
+    background: var(--ink); color: var(--bg);
+  }
+  .lang-switch button:hover:not(.active){ color: var(--accent); }
 
   @media (max-width: 640px){
     nav.links{ display:none; }
@@ -219,44 +237,50 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top">Daniel <span>Romero</span></a>
-    <nav class="links">
-      <a href="#proyectos">Proyectos</a>
-      <a href="#github">GitHub</a>
-      <a href="#stack">Stack</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+    <div class="nav-right">
+      <nav class="links">
+        <a href="#proyectos" data-i18n="nav_projects">Proyectos</a>
+        <a href="#github" data-i18n="nav_github">GitHub</a>
+        <a href="#stack" data-i18n="nav_stack">Stack</a>
+        <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+      </nav>
+      <div class="lang-switch">
+        <button id="btn-es" onclick="setLanguage('es')">ES</button>
+        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
   </div>
 </header>
 
 <div id="top" class="wrap hero">
-  <div class="eyebrow"><span class="dot"></span> Disponible para trabajo remoto</div>
-  <h1>De la idea al sistema funcionando. Full-stack developer</h1>
-  <p class="lede">
+  <div class="eyebrow"><span class="dot"></span> <span data-i18n="hero_eyebrow">Disponible para trabajo remoto</span></div>
+  <h1 data-i18n="hero_title">De la idea al sistema funcionando. Full-stack developer</h1>
+  <p class="lede" data-i18n="hero_lede">
     Ingeniero en Ciencias de la Computación en Siguatepeque, Honduras.
   </p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+    <a class="btn btn-primary" href="#proyectos" data-i18n="hero_btn_projects">Ver proyectos</a>
     <a class="btn btn-ghost" href="https://github.com/Ezy01v1" target="_blank" rel="noopener">GitHub ↗</a>
-    <a class="btn btn-ghost" href="#contacto">Contacto</a>
+    <a class="btn btn-ghost" href="#contacto" data-i18n="hero_btn_contact">Contacto</a>
   </div>
 </div>
 
 <section id="proyectos">
   <div class="wrap">
     <div class="section-head">
-      <h2>Proyectos destacados</h2>
-      <span class="tag">5 proyectos en producción o completados</span>
+      <h2 data-i18n="projects_title">Proyectos destacados</h2>
+      <span class="tag" data-i18n="projects_tag">5 proyectos en producción o completados</span>
     </div>
 
     <div class="projects">
 
       <div class="project">
         <div>
-          <div class="p-role">App de datos deportivos</div>
+          <div class="p-role" data-i18n="p1_role">App de datos deportivos</div>
           <div class="p-name">EzySports</div>
         </div>
         <div>
-          <p class="p-desc">
+          <p class="p-desc" data-i18n="p1_desc">
             Aplicación de estadísticas de la NBA construida sobre la API de balldontlie.io.
             Dashboard principal y vista de equipos funcionando; en desarrollo activo hacia
             los perfiles de jugador y equipo.
@@ -272,11 +296,11 @@
 
       <div class="project">
         <div>
-          <div class="p-role">Sistema en producción</div>
+          <div class="p-role" data-i18n="p2_role">Sistema en producción</div>
           <div class="p-name">Sistema Escolar Galilee</div>
         </div>
         <div>
-          <p class="p-desc">
+          <p class="p-desc" data-i18n="p2_desc">
             Sistema completo de administración escolar para Galilee Christian School:
             gestión de estudiantes, cobros con interfaz tipo carrito, inventario por
             grado y control de año académico. Desplegado con PM2 y Nginx sobre Windows,
@@ -296,11 +320,11 @@
 
       <div class="project">
         <div>
-          <div class="p-role">App de escritorio</div>
+          <div class="p-role" data-i18n="p3_role">App de escritorio</div>
           <div class="p-name">VoyStoreAdmin</div>
         </div>
         <div>
-          <p class="p-desc">
+          <p class="p-desc" data-i18n="p3_desc">
             Aplicación de escritorio para llevar el control de correos y perfiles de
             cuentas de streaming, reemplazando un sistema manual en notas. Arquitectura
             MVC con interfaz nativa.
@@ -316,11 +340,11 @@
 
       <div class="project">
         <div>
-          <div class="p-role">Sistema para cliente real</div>
+          <div class="p-role" data-i18n="p4_role">Sistema para cliente real</div>
           <div class="p-name">Control de Interés — North Star</div>
         </div>
         <div>
-          <p class="p-desc">
+          <p class="p-desc" data-i18n="p4_desc">
             Sistema de registro de personas interesadas para la sección en español de una
             organización religiosa, pensado para más de 140 iglesias. Registro público,
             panel con login para la junta directiva y recuperación de contraseña por
@@ -337,11 +361,11 @@
 
       <div class="project">
         <div>
-          <div class="p-role">Sitio web para negocio local</div>
+          <div class="p-role" data-i18n="p5_role">Sitio web para negocio local</div>
           <div class="p-name">Voy Store Shop</div>
         </div>
         <div>
-          <p class="p-desc">
+          <p class="p-desc" data-i18n="p5_desc">
             Sitio informativo para empresa voy store en Siguatepeque: precios,
             descripción y contacto. Desplegado con dominio propio y certificado SSL gratuito.
           </p>
@@ -359,7 +383,7 @@
 <section id="github">
   <div class="wrap">
     <div class="section-head">
-      <h2>Actividad en GitHub</h2>
+      <h2 data-i18n="github_title">Actividad en GitHub</h2>
       <span class="tag">github.com/Ezy01v1</span>
     </div>
 
@@ -377,11 +401,11 @@
 <section id="stack">
   <div class="wrap">
     <div class="section-head">
-      <h2>Stack</h2>
+      <h2 data-i18n="stack_title">Stack</h2>
     </div>
     <div class="stack-groups">
       <div class="stack-group">
-        <h3>Frontend</h3>
+        <h3 data-i18n="stack_frontend">Frontend</h3>
         <div class="stack-row">
           <span class="chip">JavaScript</span>
           <span class="chip">TypeScript</span>
@@ -391,7 +415,7 @@
         </div>
       </div>
       <div class="stack-group">
-        <h3>Backend</h3>
+        <h3 data-i18n="stack_backend">Backend</h3>
         <div class="stack-row">
           <span class="chip">Node.js</span>
           <span class="chip">Express</span>
@@ -400,14 +424,14 @@
         </div>
       </div>
       <div class="stack-group">
-        <h3>Datos</h3>
+        <h3 data-i18n="stack_data">Datos</h3>
         <div class="stack-row">
           <span class="chip">MySQL</span>
           <span class="chip">SQLite</span>
         </div>
       </div>
       <div class="stack-group">
-        <h3>Infraestructura</h3>
+        <h3 data-i18n="stack_infra">Infraestructura</h3>
         <div class="stack-row">
           <span class="chip">Git</span>
           <span class="chip">Nginx</span>
@@ -421,69 +445,190 @@
 
 <footer id="contacto">
   <div class="wrap">
-    <h2>Hablemos</h2>
-    <p>
+    <h2 data-i18n="footer_title">Hablemos</h2>
+    <p data-i18n="footer_desc">
       Busco oportunidades de empleo remoto, local o freelance. Si un proyecto encaja
       con lo que hago, escríbeme.
     </p>
     <div class="contact-links">
-      <a class="btn btn-primary" href="mailto:danielpadilla1725@gmail.com">Escribir correo</a>
+      <a class="btn btn-primary" href="mailto:danielpadilla1725@gmail.com" data-i18n="footer_email_btn">Escribir correo</a>
       <a class="btn btn-ghost" href="tel:+50496961243">+504 9696-1243</a>
       <a class="btn btn-ghost" href="https://github.com/Ezy01v1" target="_blank" rel="noopener">GitHub ↗</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/daniel-padilla-5633871bb/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
-    <div class="foot-note">Siguatepeque, Honduras — danielpadilla1725@gmail.com — actualizado automáticamente desde GitHub</div>
+    <div class="foot-note" data-i18n="footer_note">Siguatepeque, Honduras — danielpadilla1725@gmail.com — actualizado automáticamente desde GitHub</div>
   </div>
 </footer>
 
 <script>
-(async function(){
-  const statusEl = document.getElementById('gh-status');
-  const grid = document.getElementById('repo-grid');
-  const USERNAME = 'Ezy01v1';
+/* ---------- i18n ---------- */
+const translations = {
+  es: {
+    nav_projects: "Proyectos",
+    nav_github: "GitHub",
+    nav_stack: "Stack",
+    nav_contact: "Contacto",
+    hero_eyebrow: "Disponible para trabajo remoto",
+    hero_title: "De la idea al sistema funcionando. Full-stack developer",
+    hero_lede: "Ingeniero en Ciencias de la Computación en Siguatepeque, Honduras.",
+    hero_btn_projects: "Ver proyectos",
+    hero_btn_contact: "Contacto",
+    projects_title: "Proyectos destacados",
+    projects_tag: "5 proyectos en producción o completados",
+    p1_role: "App de datos deportivos",
+    p1_desc: "Aplicación de estadísticas de la NBA construida sobre la API de balldontlie.io. Dashboard principal y vista de equipos funcionando; en desarrollo activo hacia los perfiles de jugador y equipo.",
+    p2_role: "Sistema en producción",
+    p2_desc: "Sistema completo de administración escolar para Galilee Christian School: gestión de estudiantes, cobros con interfaz tipo carrito, inventario por grado y control de año académico. Desplegado con PM2 y Nginx sobre Windows, con arranque automático vía Task Scheduler. También incluye el sitio de marketing público del colegio.",
+    p3_role: "App de escritorio",
+    p3_desc: "Aplicación de escritorio para llevar el control de correos y perfiles de cuentas de streaming, reemplazando un sistema manual en notas. Arquitectura MVC con interfaz nativa.",
+    p4_role: "Sistema para cliente real",
+    p4_desc: "Sistema de registro de personas interesadas para la sección en español de una organización religiosa, pensado para más de 140 iglesias. Registro público, panel con login para la junta directiva y recuperación de contraseña por correo. Desplegado en Render con base de datos MySQL en Aiven.",
+    p5_role: "Sitio web para negocio local",
+    p5_desc: "Sitio informativo para empresa voy store en Siguatepeque: precios, descripción y contacto. Desplegado con dominio propio y certificado SSL gratuito.",
+    github_title: "Actividad en GitHub",
+    stack_title: "Stack",
+    stack_frontend: "Frontend",
+    stack_backend: "Backend",
+    stack_data: "Datos",
+    stack_infra: "Infraestructura",
+    footer_title: "Hablemos",
+    footer_desc: "Busco oportunidades de empleo remoto, local o freelance. Si un proyecto encaja con lo que hago, escríbeme.",
+    footer_email_btn: "Escribir correo",
+    footer_note: "Siguatepeque, Honduras — danielpadilla1725@gmail.com — actualizado automáticamente desde GitHub",
+    gh_fetching: "$ fetching repos from github.com/Ezy01v1 …",
+    gh_rate_limit: "$ límite de peticiones de GitHub alcanzado — intenta de nuevo en unos minutos",
+    gh_error: "$ error {code} al consultar la API de GitHub",
+    gh_error_load: "No se pudieron cargar los repositorios en este momento.",
+    gh_found: "$ {count} repositorios públicos encontrados — ordenados por última actividad",
+    gh_empty: "Aún no hay repositorios públicos.",
+    gh_no_desc: "Sin descripción",
+    gh_updated: "act. {date}",
+    gh_conn_error: "$ no se pudo conectar con la API de GitHub",
+    gh_conn_retry: "Revisa tu conexión e intenta de nuevo."
+  },
+  en: {
+    nav_projects: "Projects",
+    nav_github: "GitHub",
+    nav_stack: "Stack",
+    nav_contact: "Contact",
+    hero_eyebrow: "Available for remote work",
+    hero_title: "From idea to working system. Full-stack developer",
+    hero_lede: "Computer Science Engineer based in Siguatepeque, Honduras.",
+    hero_btn_projects: "View projects",
+    hero_btn_contact: "Contact",
+    projects_title: "Featured projects",
+    projects_tag: "5 projects in production or completed",
+    p1_role: "Sports data app",
+    p1_desc: "NBA statistics app built on the balldontlie.io API. Main dashboard and team view fully working; player and team profile pages in active development.",
+    p2_role: "Production system",
+    p2_desc: "Full school administration system for Galilee Christian School: student management, cart-style billing, per-grade inventory, and academic year control. Deployed with PM2 and Nginx on Windows, with auto-start via Task Scheduler. Also includes the school's public marketing site.",
+    p3_role: "Desktop app",
+    p3_desc: "Desktop application for tracking streaming account emails and profiles, replacing a manual note-based system. MVC architecture with a native interface.",
+    p4_role: "System for a real client",
+    p4_desc: "Interest-registration system for the Spanish-speaking branch of a religious organization, built for 140+ churches. Public registration, a login panel for the board, and email-based password recovery. Deployed on Render with a MySQL database on Aiven.",
+    p5_role: "Website for a local business",
+    p5_desc: "Informational site for a business in Siguatepeque: pricing, description, and contact. Deployed with a custom domain and free SSL certificate.",
+    github_title: "GitHub activity",
+    stack_title: "Stack",
+    stack_frontend: "Frontend",
+    stack_backend: "Backend",
+    stack_data: "Data",
+    stack_infra: "Infrastructure",
+    footer_title: "Let's talk",
+    footer_desc: "Looking for remote, local, or freelance opportunities. If a project fits what I do, reach out.",
+    footer_email_btn: "Send an email",
+    footer_note: "Siguatepeque, Honduras — danielpadilla1725@gmail.com — auto-updated from GitHub",
+    gh_fetching: "$ fetching repos from github.com/Ezy01v1 …",
+    gh_rate_limit: "$ GitHub API rate limit reached — try again in a few minutes",
+    gh_error: "$ error {code} fetching the GitHub API",
+    gh_error_load: "Couldn't load the repositories right now.",
+    gh_found: "$ {count} public repositories found — sorted by last activity",
+    gh_empty: "No public repositories yet.",
+    gh_no_desc: "No description",
+    gh_updated: "updated {date}",
+    gh_conn_error: "$ couldn't connect to the GitHub API",
+    gh_conn_retry: "Check your connection and try again."
+  }
+};
 
+let currentLang = 'es';
+
+function setLanguage(lang){
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) el.textContent = translations[lang][key];
+  });
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang;
+  localStorage.setItem('preferredLang', lang);
+  renderRepos(); // re-render repo cards with translated strings
+}
+
+const savedLang = localStorage.getItem('preferredLang');
+const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+currentLang = savedLang || browserLang;
+
+/* ---------- github ---------- */
+let cachedRepos = null;
+
+async function loadRepos(){
+  const statusEl = document.getElementById('gh-status');
+  const USERNAME = 'Ezy01v1';
   try{
     const res = await fetch(`https://api.github.com/users/${USERNAME}/repos?sort=updated&per_page=100`);
     if(!res.ok){
-      if(res.status === 403){
-        statusEl.textContent = '$ límite de peticiones de GitHub alcanzado — intenta de nuevo en unos minutos';
-      } else {
-        statusEl.textContent = `$ error ${res.status} al consultar la API de GitHub`;
-      }
-      grid.innerHTML = '<div class="repo-empty">No se pudieron cargar los repositorios en este momento.</div>';
+      statusEl.textContent = res.status === 403
+        ? translations[currentLang].gh_rate_limit
+        : translations[currentLang].gh_error.replace('{code}', res.status);
+      document.getElementById('repo-grid').innerHTML = `<div class="repo-empty">${translations[currentLang].gh_error_load}</div>`;
       return;
     }
     let repos = await res.json();
     repos = repos.filter(r => !r.fork).sort((a,b) => new Date(b.pushed_at) - new Date(a.pushed_at));
-
-    statusEl.textContent = `$ ${repos.length} repositorios públicos encontrados — ordenados por última actividad`;
-
-    if(repos.length === 0){
-      grid.innerHTML = '<div class="repo-empty">Aún no hay repositorios públicos.</div>';
-      return;
-    }
-
-    const fmt = (d) => new Date(d).toLocaleDateString('es-HN', {year:'numeric', month:'short', day:'numeric'});
-
-    grid.innerHTML = repos.map(r => `
-      <a class="repo-card" href="${r.html_url}" target="_blank" rel="noopener">
-        <div class="r-name">
-          <span>${r.name}</span>
-          ${r.stargazers_count > 0 ? `<span>★ ${r.stargazers_count}</span>` : ''}
-        </div>
-        <div class="r-desc">${r.description ? r.description : 'Sin descripción'}</div>
-        <div class="r-meta">
-          ${r.language ? `<span><span class="r-lang-dot"></span>${r.language}</span>` : ''}
-          <span>act. ${fmt(r.pushed_at)}</span>
-        </div>
-      </a>
-    `).join('');
-
+    cachedRepos = repos;
+    renderRepos();
   } catch(err){
-    statusEl.textContent = '$ no se pudo conectar con la API de GitHub';
-    grid.innerHTML = '<div class="repo-empty">Revisa tu conexión e intenta de nuevo.</div>';
+    statusEl.textContent = translations[currentLang].gh_conn_error;
+    document.getElementById('repo-grid').innerHTML = `<div class="repo-empty">${translations[currentLang].gh_conn_retry}</div>`;
   }
-})();
+}
+
+function renderRepos(){
+  const statusEl = document.getElementById('gh-status');
+  const grid = document.getElementById('repo-grid');
+  if(!statusEl) return;
+  if(cachedRepos === null){
+    statusEl.textContent = translations[currentLang].gh_fetching;
+    return;
+  }
+  const t = translations[currentLang];
+  statusEl.textContent = t.gh_found.replace('{count}', cachedRepos.length);
+  if(cachedRepos.length === 0){
+    grid.innerHTML = `<div class="repo-empty">${t.gh_empty}</div>`;
+    return;
+  }
+  const localeMap = { es: 'es-HN', en: 'en-US' };
+  const fmt = (d) => new Date(d).toLocaleDateString(localeMap[currentLang], {year:'numeric', month:'short', day:'numeric'});
+
+  grid.innerHTML = cachedRepos.map(r => `
+    <a class="repo-card" href="${r.html_url}" target="_blank" rel="noopener">
+      <div class="r-name">
+        <span>${r.name}</span>
+        ${r.stargazers_count > 0 ? `<span>★ ${r.stargazers_count}</span>` : ''}
+      </div>
+      <div class="r-desc">${r.description ? r.description : t.gh_no_desc}</div>
+      <div class="r-meta">
+        ${r.language ? `<span><span class="r-lang-dot"></span>${r.language}</span>` : ''}
+        <span>${t.gh_updated.replace('{date}', fmt(r.pushed_at))}</span>
+      </div>
+    </a>
+  `).join('');
+}
+
+setLanguage(currentLang);
+loadRepos();
 </script>
 
 </body>
