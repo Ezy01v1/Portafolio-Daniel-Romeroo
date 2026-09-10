@@ -162,6 +162,12 @@
   }
   .project .p-desc{ color: var(--ink-soft); margin: 14px 0 16px; max-width: 62ch; }
   .stack-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .proj-link{
+    font-family: var(--mono); font-size: 0.82rem; color: var(--accent);
+    text-decoration:none; display:inline-flex; align-items:center; gap:5px;
+    margin-top: 12px;
+  }
+  .proj-link:hover{ text-decoration: underline; }
   .chip{
     font-family: var(--mono); font-size: 0.76rem; color: var(--accent);
     background: var(--accent-soft); border-radius: 2px;
@@ -269,7 +275,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2 data-i18n="projects_title">Proyectos destacados</h2>
-      <span class="tag" data-i18n="projects_tag">5 proyectos en producción o completados</span>
+      <span class="tag" data-i18n="projects_tag">8 proyectos en producción o completados</span>
     </div>
 
     <div class="projects">
@@ -291,21 +297,23 @@
             <span class="chip">Vite</span>
             <span class="chip">balldontlie API</span>
           </div>
+          <a class="proj-link" href="https://ezysports-frontend.onrender.com/dashboard" target="_blank" rel="noopener" data-i18n="p1_link">Ver demo ↗</a>
         </div>
       </div>
 
       <div class="project">
         <div>
           <div class="p-role" data-i18n="p2_role">Sistema en producción</div>
-          <div class="p-name">Sistema Escolar Galilee</div>
+          <div class="p-name">Sistema Escolar Galilee — Página web</div>
         </div>
         <div>
           <p class="p-desc" data-i18n="p2_desc">
             Sistema completo de administración escolar para Galilee Christian School:
             gestión de estudiantes, cobros con interfaz tipo carrito, inventario por
             grado y control de año académico. Desplegado con PM2 y Nginx sobre Windows,
-            con arranque automático vía Task Scheduler. También incluye el sitio de
-            marketing público del colegio.
+            con arranque automático vía Task Scheduler. El sistema es propiedad del
+            colegio y no es de acceso público; el demo enlazado es el sitio de marketing
+            público del colegio, también desarrollado por mí.
           </p>
           <div class="stack-row">
             <span class="chip">Node.js</span>
@@ -315,6 +323,7 @@
             <span class="chip">React</span>
             <span class="chip">Tailwind</span>
           </div>
+          <a class="proj-link" href="https://ezy01v1.github.io/GCS-GALILEE/" target="_blank" rel="noopener" data-i18n="p2_link">Ver demo ↗</a>
         </div>
       </div>
 
@@ -373,6 +382,64 @@
             <span class="chip">HTML</span>
             <span class="chip">CSS</span>
           </div>
+          <a class="proj-link" href="https://voystore.shop/" target="_blank" rel="noopener" data-i18n="p5_link">Ver demo ↗</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div>
+          <div class="p-role" data-i18n="p6_role">Sitio web para negocio local</div>
+          <div class="p-name">Pizzería</div>
+        </div>
+        <div>
+          <p class="p-desc" data-i18n="p6_desc">
+            Sitio web para pizzería local: menú, precios y contacto, pensado para que
+            los clientes vean la oferta y hagan pedidos fácilmente.
+          </p>
+          <div class="stack-row">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+          </div>
+          <a class="proj-link" href="https://ezy01v1.github.io/Pizzeria/" target="_blank" rel="noopener" data-i18n="p6_link">Ver demo ↗</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div>
+          <div class="p-role" data-i18n="p7_role">Sitio web para negocio local</div>
+          <div class="p-name">AgroVeterinaria</div>
+        </div>
+        <div>
+          <p class="p-desc" data-i18n="p7_desc">
+            Sitio web para negocio de agroveterinaria: catálogo de productos y servicios,
+            e información de contacto para clientes del rubro agropecuario.
+          </p>
+          <div class="stack-row">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+          </div>
+          <a class="proj-link" href="https://ezy01v1.github.io/AgroVeterinaria/" target="_blank" rel="noopener" data-i18n="p7_link">Ver demo ↗</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div>
+          <div class="p-role" data-i18n="p8_role">Sitio web para negocio local</div>
+          <div class="p-name">Merlos Bakery</div>
+        </div>
+        <div>
+          <p class="p-desc" data-i18n="p8_desc">
+            Sitio web para panadería: presentación de productos, precios y contacto,
+            con un diseño enfocado en mostrar el catálogo de la marca.
+          </p>
+          <div class="stack-row">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+          </div>
+          <a class="proj-link" href="https://ezy01v1.github.io/MerlosBakery2/" target="_blank" rel="noopener" data-i18n="p8_link">Ver demo ↗</a>
         </div>
       </div>
 
@@ -474,17 +541,29 @@ const translations = {
     hero_btn_projects: "Ver proyectos",
     hero_btn_contact: "Contacto",
     projects_title: "Proyectos destacados",
-    projects_tag: "5 proyectos en producción o completados",
+    projects_tag: "8 proyectos en producción o completados",
     p1_role: "App de datos deportivos",
     p1_desc: "Aplicación de estadísticas de la NBA construida sobre la API de balldontlie.io. Dashboard principal y vista de equipos funcionando; en desarrollo activo hacia los perfiles de jugador y equipo.",
+    p1_link: "Ver demo ↗",
     p2_role: "Sistema en producción",
-    p2_desc: "Sistema completo de administración escolar para Galilee Christian School: gestión de estudiantes, cobros con interfaz tipo carrito, inventario por grado y control de año académico. Desplegado con PM2 y Nginx sobre Windows, con arranque automático vía Task Scheduler. También incluye el sitio de marketing público del colegio.",
+    p2_desc: "Sistema completo de administración escolar para Galilee Christian School: gestión de estudiantes, cobros con interfaz tipo carrito, inventario por grado y control de año académico. Desplegado con PM2 y Nginx sobre Windows, con arranque automático vía Task Scheduler. El sistema es propiedad del colegio y no es de acceso público; el demo enlazado es el sitio de marketing público del colegio, también desarrollado por mí.",
+    p2_link: "Ver demo ↗",
     p3_role: "App de escritorio",
     p3_desc: "Aplicación de escritorio para llevar el control de correos y perfiles de cuentas de streaming, reemplazando un sistema manual en notas. Arquitectura MVC con interfaz nativa.",
     p4_role: "Sistema para cliente real",
     p4_desc: "Sistema de registro de personas interesadas para la sección en español de una organización religiosa, pensado para más de 140 iglesias. Registro público, panel con login para la junta directiva y recuperación de contraseña por correo. Desplegado en Render con base de datos MySQL en Aiven.",
     p5_role: "Sitio web para negocio local",
     p5_desc: "Sitio informativo para empresa voy store en Siguatepeque: precios, descripción y contacto. Desplegado con dominio propio y certificado SSL gratuito.",
+    p5_link: "Ver demo ↗",
+    p6_role: "Sitio web para negocio local",
+    p6_desc: "Sitio web para pizzería local: menú, precios y contacto, pensado para que los clientes vean la oferta y hagan pedidos fácilmente.",
+    p6_link: "Ver demo ↗",
+    p7_role: "Sitio web para negocio local",
+    p7_desc: "Sitio web para negocio de agroveterinaria: catálogo de productos y servicios, e información de contacto para clientes del rubro agropecuario.",
+    p7_link: "Ver demo ↗",
+    p8_role: "Sitio web para negocio local",
+    p8_desc: "Sitio web para panadería: presentación de productos, precios y contacto, con un diseño enfocado en mostrar el catálogo de la marca.",
+    p8_link: "Ver demo ↗",
     github_title: "Actividad en GitHub",
     stack_title: "Stack",
     stack_frontend: "Frontend",
@@ -517,17 +596,29 @@ const translations = {
     hero_btn_projects: "View projects",
     hero_btn_contact: "Contact",
     projects_title: "Featured projects",
-    projects_tag: "5 projects in production or completed",
+    projects_tag: "8 projects in production or completed",
     p1_role: "Sports data app",
     p1_desc: "NBA statistics app built on the balldontlie.io API. Main dashboard and team view fully working; player and team profile pages in active development.",
+    p1_link: "View demo ↗",
     p2_role: "Production system",
-    p2_desc: "Full school administration system for Galilee Christian School: student management, cart-style billing, per-grade inventory, and academic year control. Deployed with PM2 and Nginx on Windows, with auto-start via Task Scheduler. Also includes the school's public marketing site.",
+    p2_desc: "Full school administration system for Galilee Christian School: student management, cart-style billing, per-grade inventory, and academic year control. Deployed with PM2 and Nginx on Windows, with auto-start via Task Scheduler. The system is owned by the school and isn't publicly accessible; the linked demo is the school's public marketing site, also built by me.",
+    p2_link: "View demo ↗",
     p3_role: "Desktop app",
     p3_desc: "Desktop application for tracking streaming account emails and profiles, replacing a manual note-based system. MVC architecture with a native interface.",
     p4_role: "System for a real client",
     p4_desc: "Interest-registration system for the Spanish-speaking branch of a religious organization, built for 140+ churches. Public registration, a login panel for the board, and email-based password recovery. Deployed on Render with a MySQL database on Aiven.",
     p5_role: "Website for a local business",
     p5_desc: "Informational site for a business in Siguatepeque: pricing, description, and contact. Deployed with a custom domain and free SSL certificate.",
+    p5_link: "View demo ↗",
+    p6_role: "Website for a local business",
+    p6_desc: "Website for a local pizzeria: menu, pricing, and contact info, built so customers can browse the offer and order easily.",
+    p6_link: "View demo ↗",
+    p7_role: "Website for a local business",
+    p7_desc: "Website for an agro-veterinary business: product and service catalog, plus contact information for customers in the agricultural sector.",
+    p7_link: "View demo ↗",
+    p8_role: "Website for a local business",
+    p8_desc: "Website for a bakery: product showcase, pricing, and contact, with a design focused on displaying the brand's catalog.",
+    p8_link: "View demo ↗",
     github_title: "GitHub activity",
     stack_title: "Stack",
     stack_frontend: "Frontend",
